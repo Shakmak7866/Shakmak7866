@@ -1,0 +1,87 @@
+#+TITLE: Data Structures
+#+DESCRIPTION: Notes on data structures
+#+AUTHOR: Shakeeb Uddin
+
+* Linked Lists
+- An abstract data type that consistes of nodes
+- The nodes are connected via pointers and are dynamically allocated
+- The idea of this is kind of like a treasure hunt
+- Acts as a replacement for a list using an array
+- You can create a size variable to keep track of the size of the list
+** Nodes
+- Nodes work as an object that usually contains two fields
+  - The data element containing the information that the node stores
+  - The next element which points to the next node
+- When the next element does not have a node to point to, it points to null
+- Best practice to create a static node class within the linkedlist class
+** Head and Tail
+- Another key characteristic about linked lists is that they have a header node and a tail node
+- These nodes can either be a reference to the desired node or a new node themselves
+*** Head node
+- A node that points to the beginning of the list
+*** Tail node
+- A node that points to the end of the list
+** Iterating through the list
+- In an array, it would have indices and you would just increment the index
+- For linked list, you have to follow where the node goes
+- Given a header node, you find the next node via
+  - head.next
+- The node after that,
+  - head.next.next
+- If you want to go throught the whole list, it is easier to have a function like this
+#+begin_src java
+Node curr = head;
+while (curr.next != null) {
+        curr = curr.next;
+}
+#+end_src
+** Different types of LinkedLists
+*** Doubly-Linked List
+- In this type of linked list, there is an additonal pointer that points to the previous node
+*** Circly-Linked List
+- In this type of linked list, a latter node points to a previous node, creating a cycle
+- Usually, it can be thought of as the tail node pointing back to the head node
+** Key facts about LinkedList to keep in mind
+- They are tiny blocks of memory linked together
+- There is no quick memory access
+- It requires extra memory to represnt compared to array
+- There are fewer expensive memory moves
+** Methods for Linked Lists
+*** set()
+- Parameters:
+  - set(int index, Object obj_of_choice)
+- Returns:
+  - Depends on the person writing the code
+*** get()
+- Parameters:
+  - get(int index)
+- Returns:
+  - Returns the object at the index
+*** append()
+- Parameters:
+  - append(Object obj_of_choice)
+- Returns:
+  - Depends on the person writing the code
+*** add()
+- Parameters:
+  - add(int index, Object obj_of_choice)
+- Returns:
+  - Depends on the person writing the code
+*** remove()
+- Possible Parameters:
+  - remove(int index)
+  - remove(Object obj_of_choice)
+- Returns:
+  - Depends on the person writing the code
+*** search()
+- Parameters:
+  - search(Object obj_of_choice)
+- Returns:
+  - Returns the index at which the object is found
+  - Or returns -1 if it is not found
+*** isEmpty() [Optional]
+- No parameters needed
+- Returns:
+  - Returns a boolean
+  - True if empty or head.data == null
+  - False if not or head.data != null
